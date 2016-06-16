@@ -7,6 +7,8 @@ public class Heapsort {
     //I would implement this entire thing as a package
     //  This way, if you're writing other code in the future, you can just
     //  import the package and use it
+    //Also, since this is a class, why not declare the array
+    //  as a member rather than pass it to every method?
     public static void main(String[] args) throws FileNotFoundException {
         File input = new File(args[0]);
         Scanner scanner = new Scanner(input);
@@ -50,7 +52,7 @@ public class Heapsort {
     
     public static void heapIt(ArrayList<Integer> list, int i, int size)
     {
-        //I'm not an export in Java, but is it better if methods like these are private?
+        //I'm not an expert in Java, but is it better if methods like these are private?
         //  Q's argument: "Everything should start as private. If you're going to make it public, you should have a reason."
         int l = i*2+1; //Use more descriptive variable names. Ex: 'leftChildPosition'
         int r = l + 1;
