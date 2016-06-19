@@ -22,12 +22,17 @@ public class Heapsort {
         
         for (int i = list.size() - 1; i > 0; i--)
         {
-            Switch(list, 0, i);
-            heapIt(list,0, i - 1);
+            Collections.swap(list, 0, i);
+            heapIt(list,0, i);
+            list.stream().forEach((s) -> {
+                System.out.print(s + " ");
+            });
+            System.out.println();
         }
         
-        for (int s: list)
+        list.stream().forEach((s) -> {
             System.out.print(s + " ");
+        });
     }
     
     public static void createHeap(ArrayList<Integer> list)
@@ -37,8 +42,9 @@ public class Heapsort {
         for (int i = size/2; i >= 0; i--)
             heapIt(list, i, list.size());
         
-        for (int i = 0; i < size + 2; i++)
-            System.out.print(list.get(i) + " ");
+        list.stream().forEach((s) -> {
+            System.out.print(s + " ");
+        });
         System.out.println();
     }
     
@@ -50,26 +56,19 @@ public class Heapsort {
         {
             if (r < size && list.get(r) > list.get(l))
             {
-                Switch(list,r,i);
+                Collections.swap(list,r,i);
                 heapIt(list, r, size);
             }
             else
             {
-                Switch(list,l,i);
+                Collections.swap(list,l,i);
                 heapIt(list,l, size);
             }
         }
         else if (r < size && list.get(r) > list.get(i))
         {
-            Switch(list,r,i);
+            Collections.swap(list,r,i);
             heapIt(list,r, size);
         }
-    }
-    
-    public static void Switch(ArrayList<Integer> list, int a, int b)
-    {
-        int tmp = list.get(a);
-        list.set(a, list.get(b));
-        list.set(b, tmp);
     }
 }
